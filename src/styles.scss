@@ -1,0 +1,34 @@
+@import '~@angular/material/theming';
+$break-small: 480px;
+
+// always include only once per project
+@include mat-core();
+
+// specify theme class eg: <body class="my-theme"> ... </body>
+// define 3 theme color
+// mat-palette accepts $palette-name, main, lighter and darker variants
+$my-theme-primary: mat-palette($mat-blue-grey, 500, 200, 900);
+$my-theme-accent: mat-palette($mat-blue);
+$my-theme-warn: mat-palette($mat-red, A200);
+
+// create theme (use mat-dark-theme for themes with dark backgrounds)
+$dark-theme: mat-dark-theme(
+    $my-theme-primary,
+    $my-theme-accent,
+    $my-theme-warn
+);
+
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  @include angular-material-theme($dark-theme);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body { margin: 0; font-family: 'Roboto', sans-serif; }
+
+#note-edit-area .mat-form-field-underline {
+    display: none;
+}

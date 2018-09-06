@@ -1,0 +1,64 @@
+<div id="app-container">
+<mat-toolbar id="main-toolbar">
+  <input id="search-input" matInput placeholder="Leave a comment">
+      
+  <button mat-button (click)="sidenav.toggle()">
+    <mat-icon>view_list</mat-icon>
+  </button>
+  <button mat-button (click)="sidenav.toggle()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+    <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>save</mat-icon>
+      </button>
+      <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>delete</mat-icon>
+        </button>
+  <div id="mode-picker-container">
+      <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="sidenav.toggle()">
+            <mat-icon>pageview</mat-icon>
+          </button>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened>Sidenav content</mat-sidenav>
+  <mat-sidenav-content>
+      <mat-form-field id="note-edit-area">
+    <textarea matInput #input rows=50></textarea>
+    </mat-form-field>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+
+<!-- <div class="totes-container">
+  <mat-toolbar>
+    <button mat-fab (click)="sidenav.toggle()">
+      <mat-icon>view_list</mat-icon>
+    </button>
+    <app-auth></app-auth>
+    <button mat-fab (click)="SaveNote()">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-fab (click)="NewNote()">
+      <mat-icon>gamepad</mat-icon>
+    </button>
+    <button mat-fab (click)="EditNotes()">
+      <mat-icon>edit</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav mode="side" opened="navbarOpen">
+      <app-side-nav [notes]="notes" [isEditMode]="isEditMode" (currentNote)="SwitchNote($event)"></app-side-nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-note-edit [note]="note.versions[0]" (currentNote)="UpdateNote($event)"></app-note-edit>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <app-auth></app-auth>
+</div>
+ -->

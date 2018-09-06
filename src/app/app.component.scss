@@ -21,7 +21,10 @@
 #mode-toolbar {
  
 }
-
+.sidenav-container {
+    height: 100%;
+    width: 100%;
+}
 .mode-button {
     width: 50%;
 }
@@ -33,4 +36,8 @@
 
 #search-input{
     font-size: 10px;
+}
+
+#side-nav {
+    width: 15%;
 }

@@ -2,29 +2,34 @@
   <mat-toolbar id="main-toolbar">
     <!-- <input id="search-input" matInput placeholder="Leave a comment"> -->
 
-    <button mat-button (click)="sidenav.toggle()">
-      <mat-icon>view_list</mat-icon>
-    </button>
-    <button mat-button (click)="sidenav.toggle()">
-      <mat-icon>add_circle</mat-icon>
-    </button>
-    <button mat-button (click)="sidenav.toggle()">
-      <mat-icon>save</mat-icon>
-    </button>
-    <button mat-button (click)="sidenav.toggle()">
-      <mat-icon>delete</mat-icon>
-    </button>
-    <div id="mode-picker-container">
+    <div id="note-icons-container">
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>view_list</mat-icon>
+      </button>
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>add_circle</mat-icon>
+      </button>
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>save</mat-icon>
+      </button>
+      <button mat-button (click)="sidenav.toggle()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <div id="view-icons-container">
       <button mat-button (click)="sidenav.toggle()">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-button (click)="sidenav.toggle()">
         <mat-icon>pageview</mat-icon>
       </button>
+    </div>
+    <div id="auth-icons-container">
       <button mat-button (click)="openAuthDialog()">
-          <mat-icon>pageview</mat-icon>
+        <mat-icon>person</mat-icon>
       </button>
     </div>
+
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container">

@@ -8,6 +8,7 @@ import { NoteEditComponent } from './components/note-edit/note-edit.component';
 import { NoteTileComponent } from './components/note-tile/note-tile.component';
 import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 @NgModule({
   declarations: [

@@ -34,7 +34,9 @@ export class AppComponent {
   }
 
   openAuthDialog() {
-    this.dialog.open(AuthDialogComponent);
+    this.dialog.open(AuthDialogComponent, {
+      width: "50%",
+    });
   }
 
 }

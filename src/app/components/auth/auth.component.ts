@@ -1,24 +1,21 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthService, User } from 'app/services/auth.service';
 
 @Component({
   selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.scss']
+  templateUrl: 'auth.component.html',
+  styleUrls: ['auth.component.scss'],
 })
-export class AuthComponent implements OnInit {
-  user: User;
+export class AuthComponent {
+  user: User = new User;
 
   constructor(public dialog: MatDialog) {}
-
-  ngOnInit() {
-  }
-
+  
   openDialog(): void {
     const dialogRef = this.dialog.open(AuthDialog, {
       width: '60%',
-      data: {email: this.user.email, password: this.user.password}
+      data: this.user,
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -33,26 +30,23 @@ export class AuthComponent implements OnInit {
   styleUrls: ['auth.component.scss'],
 })
 export class AuthDialog{
-  user: User;
 
   constructor(
     public dialogRef: MatDialogRef<AuthDialog>,
-    private authService: AuthService,
-    @Inject(MAT_DIALOG_DATA) public data) {}
+    // private _apiService: AuthService,
+    @Inject(MAT_DIALOG_DATA) public data: User,
+  ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
 
-  register(user) {
-    this.authService.register(user).subscribe(
-      (resp: any) => {
-        this.authService.changeUser(resp);
-      }
-    );
+  register() {
+
   }
 
   login() {
 
   }
 }
+

@@ -7,10 +7,12 @@ import {
   MatInputModule,
   MatCheckboxModule,
   MatButtonModule, 
-  MatIconModule, 
+  MatIconModule,
   MatCardModule, 
   MatDividerModule,
   MatProgressSpinnerModule,
+  MatDialogModule,
+  MatStepperModule,
 } from '@angular/material';
 
 @NgModule({
@@ -25,6 +27,8 @@ import {
     MatCardModule,
     MatDividerModule,
     MatProgressSpinnerModule,
+    MatDialogModule,
+    MatStepperModule,
   ],
   exports: [
     MatToolbarModule, 

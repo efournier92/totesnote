@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Note } from 'app/models/note'
 import { NoteService } from 'app/services/note.service';
-import { AuthService, User } from 'app/services/auth.service';
+import { MatDialog } from '@angular/material';
+import { AuthDialogComponent } from 'app/components/auth-dialog/auth-dialog.component';
+// import { AuthService, User } from 'app/services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +16,9 @@ export class AppComponent {
   note: Note;
 
   constructor (
-    private noteService: NoteService, 
-    private authService: AuthService,
+    private noteService: NoteService,
+    private dialog: MatDialog,
+    // private authService: AuthService,
   ) { }
 
   ngOnInit() {
@@ -28,13 +31,10 @@ export class AppComponent {
     this.notebook.push(new Note('Fifth Note'));
 
     this.noteService.changeNote(this.notebook[0]);
+  }
 
-    let user = new User();
-    this.authService.register(user).subscribe(
-      (resp: any) => {
-        this.authService.changeUser(resp);
-      }
-    );
+  openAuthDialog() {
+    this.dialog.open(AuthDialogComponent);
   }
 
 }

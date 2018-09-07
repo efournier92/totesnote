@@ -21,11 +21,14 @@
       <button mat-button (click)="sidenav.toggle()">
         <mat-icon>pageview</mat-icon>
       </button>
+      <app-auth></app-auth>
     </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav id="side-nav" mode="side" opened>Sidenav content</mat-sidenav>
+    <mat-sidenav #sidenav id="side-nav" mode="side" opened>
+      <app-note-tile *ngFor="let note of notebook" [note]="note"></app-note-tile>
+    </mat-sidenav>
     <mat-sidenav-content>
       <app-note-edit></app-note-edit>
     </mat-sidenav-content>

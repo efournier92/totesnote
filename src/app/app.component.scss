@@ -1,11 +1,6 @@
-
 #note-edit-area {
     width: 100%;
     padding: 20px;
-}
-
-.mat-drawer-content {
-    // overflow: hidden;
 }
 
 #app-container {
@@ -19,19 +14,17 @@
     padding: 0px;
 }
 
-#mode-toolbar {
- 
-}
 .sidenav-container {
     height: 100%;
     width: 100%;
 }
-.mode-button {
-    width: 50%;
+
+.sidenav-content-component {
+    padding: 2%;
 }
 
-#mode-picker-container {
-
+.mode-button {
+    width: 50%;
 }
 
 #search-input{

@@ -12,12 +12,10 @@ export class NoteTileComponent implements OnInit {
 
   constructor(private noteService: NoteService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   switchNote($event) {
     this.noteService.switchActiveNoteEvent($event);
     console.log($event);
   }
-
 }

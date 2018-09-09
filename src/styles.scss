@@ -2,35 +2,29 @@
 
 $break-small: 480px;
 
-// always include only once per project
 @include mat-core();
-
-// specify theme class eg: <body class="my-theme"> ... </body>
-// define 3 theme color
-// mat-palette accepts $palette-name, main, lighter and darker variants
 $my-theme-primary: mat-palette($mat-blue-grey, 500, 200, 900);
 $my-theme-accent: mat-palette($mat-blue);
 $my-theme-warn: mat-palette($mat-red, A200);
-
-// create theme (use mat-dark-theme for themes with dark backgrounds)
 $dark-theme: mat-dark-theme(
-    $my-theme-primary,
-    $my-theme-accent,
-    $my-theme-warn
+  $my-theme-primary,
+  $my-theme-accent,
+  $my-theme-warn
 );
+
 *::-webkit-scrollbar {
-    width: 0.1em;
-  }
-  
-  *::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: darkgrey;
-    outline: 1px solid slategrey;
-  }
-/* You can add global styles to this file, and also import other style files */
+  width: 0.1em;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+#note-edit-area .mat-form-field-underline {
+  display: none;
+}
+
 html, body {
   @include angular-material-theme($dark-theme);
   margin: 0;
@@ -40,7 +34,3 @@ html, body {
 }
 
 body { margin: 0; font-family: 'Roboto', sans-serif; }
-
-#note-edit-area .mat-form-field-underline {
-    display: none;
-}

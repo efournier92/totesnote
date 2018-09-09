@@ -17,6 +17,7 @@ export class AppComponent {
   note: Note;
   noteChange: Observable<any[]>;
   notes: Note[];
+  mode: string = 'edit';
 
   constructor(
     private noteService: NoteService,
@@ -69,4 +70,11 @@ export class AppComponent {
     });
   }
 
+  switchMode(mode: String) {
+    if (mode === 'markdown') {
+      this.mode = 'markdown';      
+    } else {
+      this.mode = 'edit';
+    }
+  }
 }

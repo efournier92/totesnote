@@ -1,7 +1,5 @@
 <div id="app-container">
   <mat-toolbar id="main-toolbar">
-    <!-- <input id="search-input" matInput placeholder="Leave a comment"> -->
-
     <div id="note-icons-container">
       <button mat-button (click)="sidenav.toggle()">
         <mat-icon>view_list</mat-icon>
@@ -17,10 +15,10 @@
       </button>
     </div>
     <div id="view-icons-container">
-      <button mat-button (click)="sidenav.toggle()">
+      <button mat-button (click)="switchMode('edit')">
         <mat-icon>edit</mat-icon>
       </button>
-      <button mat-button (click)="sidenav.toggle()">
+      <button mat-button (click)="switchMode('markdown')">
         <mat-icon>pageview</mat-icon>
       </button>
     </div>
@@ -29,44 +27,15 @@
         <mat-icon>person</mat-icon>
       </button>
     </div>
-
   </mat-toolbar>
 
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav id="side-nav" mode="side" opened>
       <app-note-tile *ngFor="let note of notes" [note]="note"></app-note-tile>
     </mat-sidenav>
-    <mat-sidenav-content>
-      <app-note-edit></app-note-edit>
+    <mat-sidenav-content class="sidenav-content-component">
+      <app-note-edit *ngIf="mode === 'edit'"></app-note-edit>
+      <app-note-markdown *ngIf="mode === 'markdown'"></app-note-markdown>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
-<!-- <div class="totes-container">
-  <mat-toolbar>
-    <button mat-fab (click)="sidenav.toggle()">
-      <mat-icon>view_list</mat-icon>
-    </button>
-    <app-auth></app-auth>
-    <button mat-fab (click)="SaveNote()">
-      <mat-icon>save</mat-icon>
-    </button>
-    <button mat-fab (click)="NewNote()">
-      <mat-icon>gamepad</mat-icon>
-    </button>
-    <button mat-fab (click)="EditNotes()">
-      <mat-icon>edit</mat-icon>
-    </button>
-  </mat-toolbar>
-
-  <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #sidenav mode="side" opened="navbarOpen">
-      <app-side-nav [notes]="notes" [isEditMode]="isEditMode" (currentNote)="SwitchNote($event)"></app-side-nav>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <app-note-edit [note]="note.versions[0]" (currentNote)="UpdateNote($event)"></app-note-edit>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  <app-auth></app-auth>
-</div>
- -->

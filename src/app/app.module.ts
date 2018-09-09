@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
@@ -11,16 +10,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from '../environments/environment';
+import { Environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './services/auth.service';
 import { FirebaseUIModule } from 'firebaseui-angular';
-// import * as firebaseui from 'firebaseui';
-// import * as firebaseui from 'firebaseui'
-
-import { firebaseUiAuthConfig } from './firebase.module'
-import { NoteService } from './services/note.service';
+import { FirebaseUiAuthConfig } from './firebase.module'
 import { NoContentPipe } from './pipes/no-content.pipe';
+import { NgxMdModule } from 'ngx-md';
+import { NoteMarkdownComponent } from './components/note-markdown/note-markdown.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +26,7 @@ import { NoContentPipe } from './pipes/no-content.pipe';
     NoteTileComponent,
     AuthDialogComponent,
     NoContentPipe,
+    NoteMarkdownComponent,
   ],
   imports: [
     FormsModule,
@@ -35,11 +34,12 @@ import { NoContentPipe } from './pipes/no-content.pipe';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    AngularFireModule.initializeApp(environment.firebase, 'totesnote'),
+    AngularFireModule.initializeApp(Environment.firebase, 'totesnote'),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    NgxMdModule.forRoot(),
+    FirebaseUIModule.forRoot(FirebaseUiAuthConfig),
   ],
   providers: [
     AuthService,

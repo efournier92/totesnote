@@ -47,14 +47,14 @@ export class NoteService {
 
   private activeUserNoteSource = new BehaviorSubject(new Note);
   activeUserNote = this.activeUserNoteSource.asObservable();
-  
+
   switchActiveNoteEvent(note: Note) {
     this.activeUserNoteSource.next(note);
   }
 
   private userNotesSource = new BehaviorSubject([]);
   userNotes = this.userNotesSource.asObservable();
-  
+
   updateUserNotesEvent(notes: Note[]) {
     this.userNotesSource.next(notes);
   }
@@ -72,7 +72,7 @@ export class NoteService {
 
   updateUserNote(note: Note) {
     this.notes.update(note.id, note);
-    
+
   }
 
   deleteUserNote(note: Note) {

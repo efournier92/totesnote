@@ -6,13 +6,13 @@
       <button mat-button (click)="sidenav.toggle()">
         <mat-icon>view_list</mat-icon>
       </button>
-      <button mat-button (click)="sidenav.toggle()">
+      <button mat-button (click)="newNote()">
         <mat-icon>add_circle</mat-icon>
       </button>
       <button mat-button (click)="sidenav.toggle()">
         <mat-icon>save</mat-icon>
       </button>
-      <button mat-button (click)="sidenav.toggle()">
+      <button mat-button (click)="signup()">
         <mat-icon>delete</mat-icon>
       </button>
     </div>
@@ -34,7 +34,7 @@
 
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav id="side-nav" mode="side" opened>
-      <app-note-tile *ngFor="let note of notebook" [note]="note"></app-note-tile>
+      <app-note-tile *ngFor="let note of notes" [note]="note"></app-note-tile>
     </mat-sidenav>
     <mat-sidenav-content>
       <app-note-edit></app-note-edit>

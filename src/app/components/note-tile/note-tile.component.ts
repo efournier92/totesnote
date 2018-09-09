@@ -17,6 +17,7 @@ export class NoteTileComponent implements OnInit {
 
   switchNote($event) {
     this.noteService.changeNote($event);
+    console.log($event);
   }
 
 }

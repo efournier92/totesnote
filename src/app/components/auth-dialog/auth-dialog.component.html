@@ -1,9 +1,14 @@
-<div id="auth-dialog-container">
+<firebase-ui></firebase-ui>
+<!-- <div id="auth-dialog-container">
   <mat-button-toggle-group class="login-register-container" name="login-register" #group="matButtonToggleGroup" value=login>
     <mat-button-toggle class="login-register-button" value="login">Login</mat-button-toggle>
     <mat-button-toggle class="login-register-button" value="register">Register</mat-button-toggle>
-  </mat-button-toggle-group> 
-  <h1 mat-dialog-title>Add file</h1>
+  </mat-button-toggle-group>
+  <div *ngIf="group.value === 'register'"> -->
+    
+  <!-- </div> -->
+
+  <!-- <h1 mat-dialog-title>Add file</h1>
   <div mat-dialog-content>
     <mat-horizontal-stepper [linear]="true" #stepper>
       <mat-step [stepControl]="firstFormGroup">
@@ -36,4 +41,4 @@
         <button mat-raised-button class="auth-module-action-button" color="warn">Cancel</button>  
     </div>
   </div>
-</div>
+</div> -->

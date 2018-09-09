@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NoteService, Note } from 'app/services/note.service';
+import { NoteService, Note, NoteVersion } from 'app/services/note.service';
 import { MatDialog } from '@angular/material';
 import { AuthDialogComponent } from 'app/components/auth-dialog/auth-dialog.component';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import { AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { AuthService } from 'app/services/auth.service';
 
@@ -26,14 +26,15 @@ export class AppComponent {
     this.noteService.userNotes.subscribe(
       notes => {
         this.notes = notes;
-        console.log('Fire Notes: ', notes);
       }
     );
   }
 
   ngOnInit() {
     this.noteService.activeUserNote.subscribe(
-      note => this.note = note
+      note => {
+        this.note = note
+      }
     )
   }
 
@@ -43,6 +44,14 @@ export class AppComponent {
 
   createNote() {
     this.noteService.createUserNote(new Note(''));
+  }
+
+  saveCurrentNote() {
+    let timestamp = this.note.versions[0].timestamp;
+    if (timestamp > +new Date - 600000) this.note.versions.shift();
+    let version = new NoteVersion(this.note.content);
+    this.note.versions.unshift(version);
+    this.noteService.updateUserNote(this.note);
   }
 
   deleteNote() {

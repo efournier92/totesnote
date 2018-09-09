@@ -18,13 +18,6 @@ export class NoteEditComponent implements OnInit {
   }
 
   onChange(note) {
-    if (this.note.versions[0].timestamp > +new Date + 10000) {
-      let version = new NoteVersion(note);
-      this.note.versions.unshift(version);
-  
-      this.noteService.updateUserNote(this.note);
-      console.log(this.notes);
-    }
-
+    this.noteService.switchActiveNoteEvent(this.note);
   }
 }

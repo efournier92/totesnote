@@ -28,6 +28,7 @@
     "firebase": "^5.4.2",
     "firebaseui": "^3.4.0",
     "firebaseui-angular": "^3.3.0",
+    "ngx-md": "^6.0.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NoteService, Note } from 'app/services/note.service';
+import { NoteService, Note, NoteVersion } from 'app/services/note.service';
 
 @Component({
   selector: 'app-note-edit',
@@ -18,7 +18,13 @@ export class NoteEditComponent implements OnInit {
   }
 
   onChange(note) {
-    this.noteService.updateUserNote(this.note);
-    console.log(this.notes);
+    if (this.note.versions[0].timestamp > +new Date + 10000) {
+      let version = new NoteVersion(note);
+      this.note.versions.unshift(version);
+  
+      this.noteService.updateUserNote(this.note);
+      console.log(this.notes);
+    }
+
   }
 }

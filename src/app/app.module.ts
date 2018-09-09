@@ -20,12 +20,14 @@ import { FirebaseUIModule } from 'firebaseui-angular';
 
 import { firebaseUiAuthConfig } from './firebase.module'
 import { NoteService } from './services/note.service';
+import { NoContentPipe } from './pipes/no-content.pipe';
 @NgModule({
   declarations: [
     AppComponent,
     NoteEditComponent,
     NoteTileComponent,
     AuthDialogComponent,
+    NoContentPipe,
   ],
   imports: [
     FormsModule,

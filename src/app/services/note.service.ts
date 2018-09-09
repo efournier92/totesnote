@@ -3,20 +3,13 @@ import { BehaviorSubject } from 'rxjs';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database'
 import { AngularFireAuth } from '@angular/fire/auth';
 
-export class Notebook {
-  _id: String
-  user: String;
-  notes: Note[];
-}
-
 export class NoteVersion {
-  _id: String
   content: String;
-  time: Date;
+  timestamp: number;
 
   constructor(content) {
     this.content = content;
-    this.time = new Date();
+    this.timestamp = +new Date;
   }
 }
 
@@ -24,12 +17,12 @@ export class Note {
   id: string;
   _owner: String;
   content: String;
-  versions: Array<NoteVersion>;
+  versions: NoteVersion[];
   isTrashed: Boolean;
 
   constructor(content?: string) {
     this.content = content || "";
-    this.versions = [];
+    this.versions = [new NoteVersion(content)];
     this.isTrashed = false;
   }
 }

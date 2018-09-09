@@ -13,13 +13,12 @@ export class NoteEditComponent implements OnInit {
   constructor(private noteService: NoteService) { }
 
   ngOnInit() {
-    this.noteService.currentNote.subscribe(note => this.note = note);
+    this.noteService.activeUserNote.subscribe(note => this.note = note);
     this.noteService.userNotes.subscribe(notes => this.notes = notes);
   }
 
   onChange(note) {
-    this.noteService.updateNote(this.note);
-    // this.noteService.changeNotes(this.notes);
+    this.noteService.updateUserNote(this.note);
     console.log(this.notes);
   }
 }

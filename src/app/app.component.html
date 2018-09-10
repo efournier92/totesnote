@@ -15,12 +15,17 @@
       </button>
     </div>
     <div id="view-icons-container">
-      <button mat-button (click)="switchMode('edit')">
-        <mat-icon>edit</mat-icon>
-      </button>
-      <button mat-button (click)="switchMode('markdown')">
-        <mat-icon>pageview</mat-icon>
-      </button>
+      <mat-button-toggle-group #mode="matButtonToggleGroup" value="edit">
+        <mat-button-toggle value="edit">
+          <mat-icon>edit</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="markdown">
+          <mat-icon>pageview</mat-icon>
+        </mat-button-toggle>
+        <mat-button-toggle value="split">
+          <mat-icon>vertical_split</mat-icon>
+        </mat-button-toggle>
+      </mat-button-toggle-group>
     </div>
     <div id="auth-icons-container">
       <button mat-button (click)="openAuthDialog()">
@@ -34,8 +39,16 @@
       <app-note-tile *ngFor="let note of notes" [note]="note"></app-note-tile>
     </mat-sidenav>
     <mat-sidenav-content class="sidenav-content-component">
-      <app-note-edit *ngIf="mode === 'edit'"></app-note-edit>
-      <app-note-markdown *ngIf="mode === 'markdown'"></app-note-markdown>
+      <app-note-edit *ngIf="mode.value === 'edit'"></app-note-edit>
+      <app-note-markdown *ngIf="mode.value === 'markdown'"></app-note-markdown>
+      <div *ngIf="mode.value === 'split'">
+        <div class="split-view">
+          <app-note-edit></app-note-edit>
+        </div>
+        <div class="split-view">
+          <app-note-markdown></app-note-markdown>
+        </div>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>

@@ -12,6 +12,15 @@ $dark-theme: mat-dark-theme(
   $my-theme-warn
 );
 
+html, body {
+  @include angular-material-theme($dark-theme);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body { margin: 0; font-family: 'Roboto', sans-serif; }
 *::-webkit-scrollbar {
   width: 0.1em;
 }
@@ -24,13 +33,3 @@ $dark-theme: mat-dark-theme(
 #note-edit-area .mat-form-field-underline {
   display: none;
 }
-
-html, body {
-  @include angular-material-theme($dark-theme);
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
-body { margin: 0; font-family: 'Roboto', sans-serif; }

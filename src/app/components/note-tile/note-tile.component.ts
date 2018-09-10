@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Note } from 'app/models/note';
-import { NoteService } from 'app/services/note.service';
+import { NoteService, Note } from 'app/services/note.service';
 
 @Component({
   selector: 'app-note-tile',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { 
+import {
   MatToolbarModule,
   MatSidenavModule,
   MatTabsModule,

@@ -1,6 +1,6 @@
+import { CdkTextareaAutosize } from '@angular/cdk/text-field';
 import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { NoteService, Note, NoteVersion } from 'app/services/note.service';
-import {CdkTextareaAutosize} from '@angular/cdk/text-field';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -17,7 +17,7 @@ export class NoteEditComponent implements OnInit {
     private ngZone: NgZone,
   ) { }
 
-  @ViewChild('cdkTextareaAutosize') autosize: CdkTextareaAutosize;
+  @ViewChild('autosize') autosize: CdkTextareaAutosize;
 
   triggerResize() {
     // Wait for changes to be applied, then trigger textarea resize.

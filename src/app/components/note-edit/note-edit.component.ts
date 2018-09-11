@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild } from '@angular/core';
 import { NoteService, Note, NoteVersion } from 'app/services/note.service';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-note-edit',
@@ -10,7 +12,18 @@ export class NoteEditComponent implements OnInit {
   note: Note;
   notes: Note[];
 
-  constructor(private noteService: NoteService) { }
+  constructor(
+    private noteService: NoteService,
+    private ngZone: NgZone,
+  ) { }
+
+  @ViewChild('cdkTextareaAutosize') autosize: CdkTextareaAutosize;
+
+  triggerResize() {
+    // Wait for changes to be applied, then trigger textarea resize.
+    this.ngZone.onStable.pipe(take(1))
+        .subscribe(() => this.autosize.resizeToFitContent(true));
+  }
 
   ngOnInit() {
     this.noteService.activeUserNote.subscribe(note => this.note = note);

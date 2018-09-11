@@ -11,7 +11,6 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { Environment } from '../environments/environment';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './services/auth.service';
 import { FirebaseUIModule } from 'firebaseui-angular';
 import { FirebaseUiAuthConfig } from './firebase.module'
@@ -35,7 +34,6 @@ import { NoteMarkdownComponent } from './components/note-markdown/note-markdown.
     BrowserAnimationsModule,
     MaterialModule,
     AngularFireModule.initializeApp(Environment.firebase, 'totesnote'),
-    AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgxMdModule.forRoot(),

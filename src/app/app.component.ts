@@ -56,7 +56,8 @@ export class AppComponent {
   }
 
   deleteNote() {
-    this.noteService.deleteUserNote(this.note);
+    this.note.isTrashed = true;
+    // this.noteService.deleteUserNote(this.note);
     this.noteService.switchActiveNoteEvent(this.notes[0]);
   }
 

@@ -1,7 +1,7 @@
-<mat-form-field id="note-edit-area">
+<mat-form-field id="note-edit-area-container">
   <textarea matInput
-  class="note-edit-textarea"
   cdkTextareaAutosize
+  id="note-edit-area"
   #autosize="cdkTextareaAutosize"
   cdkAutosizeMinRows="10"
   #input [(ngModel)]="note.content" (ngModelChange)="onChange($event)"></textarea>

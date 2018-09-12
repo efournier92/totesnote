@@ -25,6 +25,9 @@
         <mat-button-toggle value="split">
           <mat-icon>vertical_split</mat-icon>
         </mat-button-toggle>
+        <mat-button-toggle value="trash">
+          <mat-icon>delete</mat-icon>
+        </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
     <div id="auth-icons-container">
@@ -36,18 +39,21 @@
 
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav id="side-nav" mode="side" opened>
-      <app-note-tile *ngFor="let note of notes" [note]="note"></app-note-tile>
+      <div *ngFor="let note of notes">
+        <div *ngIf="mode.value !== 'trash'">
+          <app-note-tile *ngIf="note.isTrashed === false" [note]="note"></app-note-tile>
+        </div>
+        <div *ngIf="mode.value === 'trash'">
+          <app-note-tile *ngIf="note.isTrashed === true" [note]="note"></app-note-tile>
+        </div>
+      </div>
     </mat-sidenav>
     <mat-sidenav-content class="sidenav-content-component">
-      <app-note-edit *ngIf="mode.value === 'edit'"></app-note-edit>
+      <app-note-edit *ngIf="mode.value === 'edit' || mode.value === 'trash'"></app-note-edit>
       <app-note-markdown *ngIf="mode.value === 'markdown'"></app-note-markdown>
-      <div *ngIf="mode.value === 'split'">
-        <div class="split-view">
-          <app-note-edit></app-note-edit>
-        </div>
-        <div class="split-view">
-          <app-note-markdown></app-note-markdown>
-        </div>
+      <div *ngIf="mode.value === 'split'" style="display:flex;">
+        <app-note-edit class="split-view"></app-note-edit>
+        <app-note-markdown class="split-view"></app-note-markdown>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>

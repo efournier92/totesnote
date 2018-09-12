@@ -1,3 +1,9 @@
-.note-markdown-container {
-    margin-bottom: 120px; 
+#note-markdown-container {
+    height: 100%;
+    width: 100%;
+}
+
+#note-markdown {
+    margin-bottom: 30%; 
+    overflow: hidden;
 }

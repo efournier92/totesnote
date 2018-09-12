@@ -1,13 +1,9 @@
-#note-edit-area {
+#note-edit-area-container {
     height: 100%;
     width: 100%;
 }
 
-.note-edit-content {
-    overflow: hidden;
-}
-
-.note-edit-textarea {
-    margin-bottom: 80px; 
+#note-edit-area {
+    margin-bottom: 30%; 
     overflow: hidden;
 }

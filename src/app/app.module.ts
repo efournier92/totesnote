@@ -17,6 +17,8 @@ import { FirebaseUiAuthConfig } from './firebase.module'
 import { NoContentPipe } from './pipes/no-content.pipe';
 import { NgxMdModule } from 'ngx-md';
 import { NoteMarkdownComponent } from './components/note-markdown/note-markdown.component';
+import { SidenavDesktopComponent } from './components/sidenav-desktop/sidenav-desktop.component';
+import { SidenavMobileComponent } from './components/sidenav-mobile/sidenav-mobile.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { NoteMarkdownComponent } from './components/note-markdown/note-markdown.
     AuthDialogComponent,
     NoContentPipe,
     NoteMarkdownComponent,
+    SidenavDesktopComponent,
+    SidenavMobileComponent,
   ],
   imports: [
     FormsModule,

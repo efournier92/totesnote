@@ -13,12 +13,12 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { Environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 import { FirebaseUIModule } from 'firebaseui-angular';
-import { FirebaseUiAuthConfig } from './firebase.module'
+import { FirebaseUiAuthConfig } from './firebase.module';
 import { NoContentPipe } from './pipes/no-content.pipe';
 import { NgxMdModule } from 'ngx-md';
 import { NoteMarkdownComponent } from './components/note-markdown/note-markdown.component';
-import { SidenavDesktopComponent } from './components/sidenav-desktop/sidenav-desktop.component';
-import { SidenavMobileComponent } from './components/sidenav-mobile/sidenav-mobile.component';
+import { TopbarMobileComponent } from './components/topbar-mobile/topbar-mobile.component';
+import { TopbarDesktopComponent } from './components/topbar-desktop/topbar-desktop.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +28,8 @@ import { SidenavMobileComponent } from './components/sidenav-mobile/sidenav-mobi
     AuthDialogComponent,
     NoContentPipe,
     NoteMarkdownComponent,
-    SidenavDesktopComponent,
-    SidenavMobileComponent,
+    TopbarMobileComponent,
+    TopbarDesktopComponent,
   ],
   imports: [
     FormsModule,

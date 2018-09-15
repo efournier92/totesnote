@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SidenavMobileComponent } from './sidenav-mobile.component';
+import { TopbarDesktopComponent } from './topbar-desktop.component';
 
-describe('SidenavMobileComponent', () => {
-  let component: SidenavMobileComponent;
-  let fixture: ComponentFixture<SidenavMobileComponent>;
+describe('TopbarDesktopComponent', () => {
+  let component: TopbarDesktopComponent;
+  let fixture: ComponentFixture<TopbarDesktopComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidenavMobileComponent ]
+      declarations: [ TopbarDesktopComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SidenavMobileComponent);
+    fixture = TestBed.createComponent(TopbarDesktopComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

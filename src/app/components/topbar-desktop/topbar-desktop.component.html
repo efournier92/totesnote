@@ -1,0 +1,37 @@
+<mat-toolbar id="main-toolbar">
+  <div id="note-icons-container">
+    <button mat-button (click)="sidenav.toggle()">
+      <mat-icon>view_list</mat-icon>
+    </button>
+    <button mat-button (click)="createNote()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+    <button mat-button (click)="saveCurrentNote()">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-button (click)="deleteNote()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div id="view-icons-container">
+    <mat-button-toggle-group #mode="matButtonToggleGroup" value="edit">
+      <mat-button-toggle value="edit">
+        <mat-icon>edit</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="markdown">
+        <mat-icon>pageview</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="split">
+        <mat-icon>vertical_split</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="trash">
+        <mat-icon>delete</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div id="auth-icons-container">
+    <button mat-button (click)="openAuthDialog()">
+      <mat-icon>person</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>

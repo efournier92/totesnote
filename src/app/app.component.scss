@@ -40,7 +40,11 @@
 }
 
 #view-icons-container {
-    margin: auto;
+    margin-top: -5px;
+}
+
+.fill-space {
+    flex: 1 1 auto;
 }
 
 #auth-icon-container {

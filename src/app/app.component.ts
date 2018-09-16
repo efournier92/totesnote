@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NoteService, Note, NoteVersion } from 'app/services/note.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSidenav } from '@angular/material';
 import { AuthDialogComponent } from 'app/components/auth-dialog/auth-dialog.component';
 import { AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { AuthService } from 'app/services/auth.service';
+import { BreakpointObserver } from '@angular/cdk/layout';
+
 
 @Component({
   selector: 'app-root',
@@ -17,16 +19,22 @@ export class AppComponent {
   note: Note;
   noteChange: Observable<any[]>;
   notes: Note[];
-  mode: string = 'edit';
+  isTrashMode: Boolean = false;
+  modeMenu: string = 'edit';
+  @ViewChild('sidenav') sidenav: MatSidenav;
 
   constructor(
     private noteService: NoteService,
     private authService: AuthService,
     private dialog: MatDialog,
+    private breakpointObserver: BreakpointObserver,
   ) {
     this.noteService.userNotes.subscribe(
       notes => {
-        this.notes = notes;
+        if (notes.length !== 0) {
+          this.notes = notes;
+          this.noteService.switchActiveNoteEvent(this.notes[0]);
+        }
       }
     );
   }
@@ -37,7 +45,26 @@ export class AppComponent {
         this.note = note
       }
     )
+
+    const layoutChanges = this.breakpointObserver.observe([
+      '(max-width: 599px)',
+    ]);
+    
+
+
+    this.changeScreenSize();
+    layoutChanges.subscribe(result => {
+      this.changeScreenSize();
+    })
+
+  
   }
+
+  public changeScreenSize(){
+    const isSmallScreen = this.breakpointObserver.isMatched('(max-width: 599px)');
+    isSmallScreen ? this.sidenav.close() : this.sidenav.open();
+  }
+
 
   public addBook(): void {
     this.notebook.push(new Note('First Note')).then(x => console.log('DATA: ', this.notebook, x));
@@ -57,6 +84,7 @@ export class AppComponent {
 
   deleteNote() {
     this.note.isTrashed = true;
+    this.noteService.updateUserNote(this.note);
     // this.noteService.deleteUserNote(this.note);
     this.noteService.switchActiveNoteEvent(this.notes[0]);
   }
@@ -71,11 +99,11 @@ export class AppComponent {
     });
   }
 
-  switchMode(mode: String) {
-    if (mode === 'markdown') {
-      this.mode = 'markdown';      
-    } else {
-      this.mode = 'edit';
-    }
-  }
+  // switchMode(mode: String) {
+  //   if (mode === 'markdown') {
+  //     this.mode = 'markdown';      
+  //   } else {
+  //     this.mode = 'edit';
+  //   }
+  // }
 }

@@ -9,8 +9,9 @@
       </mat-menu>
       <button mat-button [matMenuTriggerFor]="view">View</button>
       <mat-menu #view="matMenu">
+        <button mat-menu-item *ngIf="isTrashMode" (click)="isTrashMode = false">Notes</button>
+        <button mat-menu-item *ngIf="!isTrashMode" (click)="isTrashMode = true">Trash</button>
         <button mat-menu-item (click)="sidenav.toggle()">Toggle Sidenav</button>
-        <button mat-menu-item>Item 2</button>
       </mat-menu>
       <button mat-button [matMenuTriggerFor]="menu">Profile</button>
       <mat-menu #menu="matMenu">
@@ -18,8 +19,9 @@
         <button mat-menu-item>Sign Out</button>
       </mat-menu>
     </div>
+    <span class="fill-space"></span>
     <div id="view-icons-container">
-      <mat-button-toggle-group #mode="matButtonToggleGroup" value="edit">
+      <mat-button-toggle-group #modeMenu="matButtonToggleGroup" value="edit">
         <mat-button-toggle value="edit">
           <mat-icon>edit</mat-icon>
         </mat-button-toggle>
@@ -29,9 +31,6 @@
         <mat-button-toggle value="split">
           <mat-icon>vertical_split</mat-icon>
         </mat-button-toggle>
-        <mat-button-toggle value="trash">
-          <mat-icon>delete</mat-icon>
-        </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
   </mat-toolbar>
@@ -39,18 +38,18 @@
   <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #sidenav id="side-nav" mode="side" opened>
       <div *ngFor="let note of notes">
-        <div *ngIf="mode.value !== 'trash'">
-          <app-note-tile *ngIf="note.isTrashed === false" [note]="note"></app-note-tile>
-        </div>
-        <div *ngIf="mode.value === 'trash'">
+        <div *ngIf="isTrashMode === true">
           <app-note-tile *ngIf="note.isTrashed === true" [note]="note"></app-note-tile>
+        </div>
+        <div *ngIf="isTrashMode === false">
+          <app-note-tile *ngIf="note.isTrashed === false" [note]="note"></app-note-tile>
         </div>
       </div>
     </mat-sidenav>
     <mat-sidenav-content class="sidenav-content-component">
-      <app-note-edit *ngIf="mode.value === 'edit' || mode.value === 'trash'"></app-note-edit>
-      <app-note-markdown *ngIf="mode.value === 'markdown'"></app-note-markdown>
-      <div *ngIf="mode.value === 'split'" style="display:flex;">
+      <app-note-edit *ngIf="modeMenu.value === 'edit' || modeMenu.value === 'trash'"></app-note-edit>
+      <app-note-markdown *ngIf="modeMenu.value === 'markdown'"></app-note-markdown>
+      <div *ngIf="modeMenu.value === 'split'" style="display:flex;">
         <app-note-edit class="split-view"></app-note-edit>
         <app-note-markdown class="split-view"></app-note-markdown>
       </div>

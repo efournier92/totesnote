@@ -72,7 +72,6 @@ export class NoteService {
 
   updateUserNote(note: Note) {
     this.notes.update(note.id, note);
-
   }
 
   deleteUserNote(note: Note) {

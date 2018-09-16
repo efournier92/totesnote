@@ -44,7 +44,7 @@ export class AppComponent {
   }
 
   createNote() {
-    this.noteService.createUserNote(new Note(''));
+    this.noteService.createUserNote(new Note('# '));
   }
 
   saveCurrentNote() {

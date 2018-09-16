@@ -1,18 +1,22 @@
 <div id="app-container">
   <mat-toolbar id="main-toolbar">
     <div id="note-icons-container">
-      <button mat-button (click)="sidenav.toggle()">
-        <mat-icon>view_list</mat-icon>
-      </button>
-      <button mat-button (click)="createNote()">
-        <mat-icon>add_circle</mat-icon>
-      </button>
-      <button mat-button (click)="saveCurrentNote()">
-        <mat-icon>save</mat-icon>
-      </button>
-      <button mat-button (click)="deleteNote()">
-        <mat-icon>delete</mat-icon>
-      </button>
+      <button mat-button [matMenuTriggerFor]="note">Note</button>
+      <mat-menu #note="matMenu">
+        <button mat-menu-item (click)="createNote()">New</button>
+        <button mat-menu-item (click)="saveCurrentNote()">Save</button>
+        <button mat-menu-item (click)="deleteNote()">Trash</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="view">View</button>
+      <mat-menu #view="matMenu">
+        <button mat-menu-item (click)="sidenav.toggle()">Toggle Sidenav</button>
+        <button mat-menu-item>Item 2</button>
+      </mat-menu>
+      <button mat-button [matMenuTriggerFor]="menu">Profile</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openAuthDialog()">Sign in...</button>
+        <button mat-menu-item>Sign Out</button>
+      </mat-menu>
     </div>
     <div id="view-icons-container">
       <mat-button-toggle-group #mode="matButtonToggleGroup" value="edit">
@@ -29,11 +33,6 @@
           <mat-icon>delete</mat-icon>
         </mat-button-toggle>
       </mat-button-toggle-group>
-    </div>
-    <div id="auth-icons-container">
-      <button mat-button (click)="openAuthDialog()">
-        <mat-icon>person</mat-icon>
-      </button>
     </div>
   </mat-toolbar>
 

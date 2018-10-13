@@ -19,7 +19,7 @@ import { NgxMdModule } from 'ngx-md';
 import { NoteMarkdownComponent } from './components/note-markdown/note-markdown.component';
 import { TopbarMobileComponent } from './components/topbar-mobile/topbar-mobile.component';
 import { TopbarDesktopComponent } from './components/topbar-desktop/topbar-desktop.component';
-import {LayoutModule} from '@angular/cdk/layout';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [

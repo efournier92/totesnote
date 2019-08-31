@@ -1,24 +1,75 @@
-# Totesnote
+# ![Totesnote]()
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+## Contents
+- [Overview](#overview)
+- [Demo](#demo)
+- [Development Philosophy](#development-philosophy)
+- [Stack](#stack)
+- [Configure](#configure)
+- [Build](#build)
+- [Test](#test)
+- [Contribute](#contribute)
+- [License](#license)
+- [Features](#features)
+- [Features To Do](#features-to-do)
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Demo
+[]()
 
-## Code scaffolding
+## Development Philosophy
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Stack
+
+### Server
+- []()
+- []()
+- []()
+
+### Client
+- []()
+- []()
+- []()
+
+### Test
+- []()
+- []()
+- []()
+
+## Configure
+
+### `\`
+
+```
+```
 
 ## Build
+1. 
+2. 
+3.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Test
 
-## Running unit tests
+## Contribute
+If you have feature suggestions, please contact me here or at efournier92@gmail.com. If you'd like to submit a pull request, please feel free to, and I'll review merge it at my earliest convenience!
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## License
+This project is provided under the [`MIT`](https://opensource.org/licenses/MIT) licence and I hereby grant rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software without limitation, provided the resulting software also carries the same open-source licensing statement.
 
-## Running end-to-end tests
+## Features
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+###
+![Screen]()
+
+###
+![Screen]()
+
+###
+![Screen]()
+
+## Features To Do
+- [ ]
+- [ ]
+- [ ]
 
